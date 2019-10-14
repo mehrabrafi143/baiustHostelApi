@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 
 namespace BaiustHostel.Models
@@ -9,6 +10,8 @@ namespace BaiustHostel.Models
 		public int Id { get; set; }
 		public string Name { get; set; }
 		public int Roll { get; set; }
+		public Gender Gender { get; set; }
+		public int? GenderId { get; set; }
 		public float PaidAmount { get; set; }
 		public float DeuAmount { get; set; }
 		public string RoomNo { get; set; }
@@ -18,5 +21,6 @@ namespace BaiustHostel.Models
 		public string Dept { get; set; }
 		public ApplicationUser UserAccount { get; set; }
 		public string UserAccountId { get; set; }
+		public Sit Sit { get; set; }
 	}
 }

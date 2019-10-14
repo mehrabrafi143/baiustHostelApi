@@ -245,12 +245,15 @@
     <Compile Include="Controllers\FoodMenuController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MealController.cs" />
+    <Compile Include="Controllers\MonthlyBillController.cs" />
     <Compile Include="Controllers\NoticeController.cs" />
     <Compile Include="Controllers\NotificationController.cs" />
+    <Compile Include="Controllers\SitController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Dtos\AddMeal.cs" />
+    <Compile Include="Dtos\ElectricBill.cs" />
     <Compile Include="Migrations\201909201734058_addingStudentsPayModel.cs" />
     <Compile Include="Migrations\201909201734058_addingStudentsPayModel.Designer.cs">
       <DependentUpon>201909201734058_addingStudentsPayModel.cs</DependentUpon>
@@ -267,9 +270,84 @@
     <Compile Include="Migrations\201909230731168_addingNotificationAndUsernotification.Designer.cs">
       <DependentUpon>201909230731168_addingNotificationAndUsernotification.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910010816397_addingSitsModel.cs" />
+    <Compile Include="Migrations\201910010816397_addingSitsModel.Designer.cs">
+      <DependentUpon>201910010816397_addingSitsModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910010827376_addingSitsModelWithOccupiedSit.cs" />
+    <Compile Include="Migrations\201910010827376_addingSitsModelWithOccupiedSit.Designer.cs">
+      <DependentUpon>201910010827376_addingSitsModelWithOccupiedSit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910010923365_addinggender.cs" />
+    <Compile Include="Migrations\201910010923365_addinggender.Designer.cs">
+      <DependentUpon>201910010923365_addinggender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910010927195_addgendertostudentandsitmodel.cs" />
+    <Compile Include="Migrations\201910010927195_addgendertostudentandsitmodel.Designer.cs">
+      <DependentUpon>201910010927195_addgendertostudentandsitmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910010932470_adding.cs" />
+    <Compile Include="Migrations\201910010932470_adding.Designer.cs">
+      <DependentUpon>201910010932470_adding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910010935557_addinggendermodel.cs" />
+    <Compile Include="Migrations\201910010935557_addinggendermodel.Designer.cs">
+      <DependentUpon>201910010935557_addinggendermodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910010936356_addingendertosit.cs" />
+    <Compile Include="Migrations\201910010936356_addingendertosit.Designer.cs">
+      <DependentUpon>201910010936356_addingendertosit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910010939575_addingendertostudent.cs" />
+    <Compile Include="Migrations\201910010939575_addingendertostudent.Designer.cs">
+      <DependentUpon>201910010939575_addingendertostudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910020551372_foo.cs" />
+    <Compile Include="Migrations\201910020551372_foo.Designer.cs">
+      <DependentUpon>201910020551372_foo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910020657473_foo1.cs" />
+    <Compile Include="Migrations\201910020657473_foo1.Designer.cs">
+      <DependentUpon>201910020657473_foo1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910030544306_addsittostudent.cs" />
+    <Compile Include="Migrations\201910030544306_addsittostudent.Designer.cs">
+      <DependentUpon>201910030544306_addsittostudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910030600444_addsittostudent1.cs" />
+    <Compile Include="Migrations\201910030600444_addsittostudent1.Designer.cs">
+      <DependentUpon>201910030600444_addsittostudent1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910030602590_addsittostudent11.cs" />
+    <Compile Include="Migrations\201910030602590_addsittostudent11.Designer.cs">
+      <DependentUpon>201910030602590_addsittostudent11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910030606242_remove.cs" />
+    <Compile Include="Migrations\201910030606242_remove.Designer.cs">
+      <DependentUpon>201910030606242_remove.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910030625186_addinsit.cs" />
+    <Compile Include="Migrations\201910030625186_addinsit.Designer.cs">
+      <DependentUpon>201910030625186_addinsit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910050521202_addingMonthlyBill.cs" />
+    <Compile Include="Migrations\201910050521202_addingMonthlyBill.Designer.cs">
+      <DependentUpon>201910050521202_addingMonthlyBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910131930262_ignorForginKeuNoticeAndNotification.cs" />
+    <Compile Include="Migrations\201910131930262_ignorForginKeuNoticeAndNotification.Designer.cs">
+      <DependentUpon>201910131930262_ignorForginKeuNoticeAndNotification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910131933325_ignorForginKeuNoticeAndNotification1.cs" />
+    <Compile Include="Migrations\201910131933325_ignorForginKeuNoticeAndNotification1.Designer.cs">
+      <DependentUpon>201910131933325_ignorForginKeuNoticeAndNotification1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Gender.cs" />
+    <Compile Include="Models\MonthlyBill.cs" />
     <Compile Include="Models\Notice.cs" />
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\NotificationType.cs" />
+    <Compile Include="Models\Sit.cs" />
     <Compile Include="Models\StudentsPay.cs" />
     <Compile Include="Migrations\201909191841453_addingExtraMeals.cs" />
     <Compile Include="Migrations\201909191841453_addingExtraMeals.Designer.cs">
@@ -543,6 +621,60 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909230731168_addingNotificationAndUsernotification.resx">
       <DependentUpon>201909230731168_addingNotificationAndUsernotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910010816397_addingSitsModel.resx">
+      <DependentUpon>201910010816397_addingSitsModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910010827376_addingSitsModelWithOccupiedSit.resx">
+      <DependentUpon>201910010827376_addingSitsModelWithOccupiedSit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910010923365_addinggender.resx">
+      <DependentUpon>201910010923365_addinggender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910010927195_addgendertostudentandsitmodel.resx">
+      <DependentUpon>201910010927195_addgendertostudentandsitmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910010932470_adding.resx">
+      <DependentUpon>201910010932470_adding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910010935557_addinggendermodel.resx">
+      <DependentUpon>201910010935557_addinggendermodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910010936356_addingendertosit.resx">
+      <DependentUpon>201910010936356_addingendertosit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910010939575_addingendertostudent.resx">
+      <DependentUpon>201910010939575_addingendertostudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910020551372_foo.resx">
+      <DependentUpon>201910020551372_foo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910020657473_foo1.resx">
+      <DependentUpon>201910020657473_foo1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910030544306_addsittostudent.resx">
+      <DependentUpon>201910030544306_addsittostudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910030600444_addsittostudent1.resx">
+      <DependentUpon>201910030600444_addsittostudent1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910030602590_addsittostudent11.resx">
+      <DependentUpon>201910030602590_addsittostudent11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910030606242_remove.resx">
+      <DependentUpon>201910030606242_remove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910030625186_addinsit.resx">
+      <DependentUpon>201910030625186_addinsit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910050521202_addingMonthlyBill.resx">
+      <DependentUpon>201910050521202_addingMonthlyBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910131930262_ignorForginKeuNoticeAndNotification.resx">
+      <DependentUpon>201910131930262_ignorForginKeuNoticeAndNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910131933325_ignorForginKeuNoticeAndNotification1.resx">
+      <DependentUpon>201910131933325_ignorForginKeuNoticeAndNotification1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

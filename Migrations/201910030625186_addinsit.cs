@@ -1,0 +1,22 @@
+namespace BaiustHostel.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class addinsit : DbMigration
+    {
+        public override void Up()
+        {
+            AddColumn("dbo.Students", "Sit_Id", c => c.Int());
+            CreateIndex("dbo.Students", "Sit_Id");
+            AddForeignKey("dbo.Students", "Sit_Id", "dbo.Sits", "Id");
+        }
+        
+        public override void Down()
+        {
+            DropForeignKey("dbo.Students", "Sit_Id", "dbo.Sits");
+            DropIndex("dbo.Students", new[] { "Sit_Id" });
+            DropColumn("dbo.Students", "Sit_Id");
+        }
+    }
+}

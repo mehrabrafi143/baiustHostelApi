@@ -24,14 +24,25 @@ namespace BaiustHostel.Controllers
 
 	    public IHttpActionResult AddStudent(Student student)
 	    {
-		    if (!ModelState.IsValid)
-			    return BadRequest("bad request");
+		    
 
 		    if (student.Id == 0)
 		    {
 			    var userAccount = _context.Users.Find(student.UserAccountId);
 			    userAccount.Student = student;
 			    student.AddedTime = DateTime.Now;
+				
+
+			    var sit = _context.Sits.SingleOrDefault(s => s.Name == student.RoomNo);
+
+			    if (sit == null) return BadRequest("null sit");
+
+			    student.Sit = sit;
+
+				if (sit.Capacity <= sit.OccupiedSit)
+				    return BadRequest("all sits are occupied in this room");
+
+			    sit.OccupiedSit = sit.OccupiedSit + 1;
 
 			    var rooList = _context.Students.Select(s => s.Roll).ToList();
 
@@ -47,12 +58,21 @@ namespace BaiustHostel.Controllers
 			    if (studentInDb == null)
 				    return BadRequest("no student found");
 
-			    studentInDb.Name = student.Name;
+			    var sit = _context.Sits.SingleOrDefault(s => s.Name == student.RoomNo);
+
+			    if (sit == null) return BadRequest("null sit");
+
+				if (sit.Capacity == sit.OccupiedSit)
+				    return BadRequest("all sits are occupied in this room");
+
+			    sit.OccupiedSit = sit.OccupiedSit + 1;
+
+				studentInDb.Name = student.Name;
 			    studentInDb.Address = student.Address;
 			    studentInDb.PhoneNumber = student.PhoneNumber;
 			    studentInDb.Roll = student.Roll;
-			    studentInDb.RoomNo = student.RoomNo;
 			    studentInDb.Dept = student.Dept;
+			    studentInDb.Sit = sit;
 		    }
 
 
@@ -63,13 +83,13 @@ namespace BaiustHostel.Controllers
 
 	    public IEnumerable<Student> GetStudents()
 	    {
-		    return _context.Students.ToList();
+		    return _context.Students.Include(s => s.Sit).ToList();
 	    }
 
 		[HttpGet]
 		public IHttpActionResult GetStudentById(int id)
 		{
-			var student = _context.Students.SingleOrDefault(s => s.Id == id);
+			var student = _context.Students.Include(s => s.Sit).Include(s => s.Gender).SingleOrDefault(s => s.Id == id);
 			if (student == null)
 				return BadRequest("Not a valid id");
 			return Ok(student);

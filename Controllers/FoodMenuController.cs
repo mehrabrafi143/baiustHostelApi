@@ -22,6 +22,7 @@ namespace BaiustHostel.Controllers
 	    {
 		    if (foodMenu == null || foodMenu.FoodItemsId.Count == 0)
 			    return BadRequest("can't be null");
+
 		    if (foodMenu.Id != 0)
 		    {
 			    var menuInDb = _context.FoodMenus.Include(f => f.FoodItems).SingleOrDefault(m => m.Id == foodMenu.Id);

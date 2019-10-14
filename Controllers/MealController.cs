@@ -126,6 +126,20 @@ namespace BaiustHostel.Controllers
 			return Ok(extraMeal);
 		}
 
+		[Route("api/meal/meals")]
+		[HttpGet]
+		public IHttpActionResult TotalMeals()
+		{
+			var arr = new List<int>();
+			var bMeal = _context.StudentMeals.Count(s => s.MealId == 3);
+			var lMeal = _context.StudentMeals.Count(s => s.MealId == 4);
+			var dMeal = _context.StudentMeals.Count(s => s.MealId == 5);
+			arr.Add(bMeal);
+			arr.Add(lMeal);
+			arr.Add(dMeal);
+			return Ok(arr);
+		}
+
 		
 
     }

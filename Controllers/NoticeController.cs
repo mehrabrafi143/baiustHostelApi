@@ -32,7 +32,7 @@ namespace BaiustHostel.Controllers
 					    DateTime = DateTime.Now,
 					    OriginalDescription = noticeInDb.Description,
 						OriginalTitle = noticeInDb.Title,
-						Notice = notice,
+						Notice = noticeInDb,
 						NotificationType = NotificationType.Updated
 				    };
 
@@ -61,6 +61,7 @@ namespace BaiustHostel.Controllers
 
 		    notice.CreatedTime = DateTime.Now;
 
+
 			var notification = new Notification
 			{
 				DateTime = DateTime.Now,
@@ -80,7 +81,6 @@ namespace BaiustHostel.Controllers
 				_context.UserNotifications.Add(userNotification);
 			}
 			
-		    _context.Notics.Add(notice);
 		    _context.SaveChanges();
 
 		    return Ok(notice);
@@ -94,6 +94,11 @@ namespace BaiustHostel.Controllers
 		    if (noticeInDb != null)
 		    {
 			    _context.Notics.Remove(noticeInDb);
+			    var notifications = _context.Notifications.Where(n => n.Notice.Id == id).ToList();
+			    foreach (var notification in notifications)
+			    {
+				    _context.Notifications.Remove(notification);
+			    }
 			    _context.SaveChanges();
 			    return Ok(noticeInDb);
 		    }
@@ -104,7 +109,7 @@ namespace BaiustHostel.Controllers
 		[HttpGet]
 		public IEnumerable<Notice> GetNotices()
 		{
-			return _context.Notics.ToList();
+			return _context.Notics.OrderByDescending(n => n.Id).ToList();
 		}
 
 		[HttpGet]

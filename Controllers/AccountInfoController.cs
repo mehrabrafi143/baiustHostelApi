@@ -25,7 +25,7 @@ namespace BaiustHostel.Controllers
 		   var studentsMealPrice = _context.StudentMeals.Select(sm => sm.Meal.FoodMenu.FullPrice).Sum();
 			arr.Add(studentsMealPrice);
 			arr.Add(extraMealPrice);
-			return Ok();
+			return Ok(arr);
 	    }
 
 	    [HttpGet]
@@ -41,5 +41,32 @@ namespace BaiustHostel.Controllers
 	    {
 		    return Ok(_context.Students.Select(s => s.PaidAmount).Sum());
 	    }
+
+		[HttpPost]
+		[Route("api/MonthlyBill")]
+		public IHttpActionResult MonthlyBill(MonthlyBill monthlyBill)
+		{
+			if (monthlyBill == null)
+				return BadRequest("null values");
+
+
+			var billInDb = _context.MonthlyBills.SingleOrDefault(m => m.Id == 1);
+			if (billInDb == null)
+			{
+				_context.MonthlyBills.Add(monthlyBill);
+			}
+			else
+			{
+
+				billInDb.RoomBill = monthlyBill.RoomBill;
+				billInDb.ServicePrice = monthlyBill.ServicePrice;
+			}
+		
+
+			_context.SaveChanges();
+
+			return Ok(monthlyBill);
+		}
+
     }
 }

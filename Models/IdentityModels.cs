@@ -33,7 +33,9 @@ namespace BaiustHostel.Models
 		public DbSet<Notice> Notics { get; set; }
 		public DbSet<Notification> Notifications { get; set; }
 		public DbSet<UserNotification> UserNotifications { get; set; }
-
+		public DbSet<Sit> Sits { get; set; }
+		public DbSet<Gender> Genders { get; set; }
+		public DbSet<MonthlyBill> MonthlyBills { get; set; }
 		public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -51,7 +53,8 @@ namespace BaiustHostel.Models
 		        .HasOptional(a => a.Student)
 		        .WithRequired(s => s.UserAccount);
 
-			
+
+		
 
 	        base.OnModelCreating(modelBuilder);
         }
