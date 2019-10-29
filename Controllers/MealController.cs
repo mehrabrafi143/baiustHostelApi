@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
 using BaiustHostel.Dtos;
+using BaiustHostel.Migrations;
 using BaiustHostel.Models;
 
 namespace BaiustHostel.Controllers
@@ -33,6 +34,12 @@ namespace BaiustHostel.Controllers
 
 		    if (foodMenu == null)
 			    return BadRequest("No food menu in the given id");
+
+		    var studentMeals = _context.StudentMeals.Where(s => s.MealId == addMeal.MealId);
+		    foreach (var studentMeal in studentMeals)
+		    {
+			    _context.StudentMeals.Remove(studentMeal);
+		    }
 
 		    dbMeal.FoodMenu = foodMenu;
 		    dbMeal.FullPrice = foodMenu.FullPrice;
@@ -138,6 +145,17 @@ namespace BaiustHostel.Controllers
 			arr.Add(lMeal);
 			arr.Add(dMeal);
 			return Ok(arr);
+		}
+
+		[Route("api/mealTokens")]
+		[HttpGet]
+		public IHttpActionResult GetTokens()
+		{
+			return Ok(_context.StudentMeals.Include(s => s.Student)
+				.Select(s => new { StudentName = s.Student.Name, StudentId = s.Student.Roll, mealId = s.Meal.Name, token = s.MealToken })
+				.OrderByDescending(s => s.StudentId)
+				.ToList())
+				;
 		}
 
 		
